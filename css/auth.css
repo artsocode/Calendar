@@ -1,0 +1,109 @@
+/*FORM START*/
+.cal-form {
+	margin: 0 auto;
+	width: 300px;
+}
+
+.cal-form-window {
+	position: relative;
+	overflow: hidden;
+	width: 258px;
+	height: auto;
+}
+
+.cal-form-lent {
+	position: relative;
+	width: 600px;
+	height: auto;
+	right: 0px;
+}
+
+
+/*AUTH FORM START*/
+.cal-auth-form {
+	float: left;
+	overflow: hidden;
+	padding-bottom: 10px;
+	width: 260px;
+	height: auto;
+	background-color: #fff;
+}
+/*AUTH FROM END*/
+
+/*REGISTR FORM START*/
+.cal-registr-form {
+	overflow: hidden;
+	padding: 0 0 10px 0;
+	width: 260px;
+	height: auto;
+	background-color: #fff;
+}
+/*REGISTR FROM END*/
+/*FORM END*/
+
+/*BATTON START*/
+/*BATTON END*/
+
+/*LOGO START*/
+.cal-logo-images {
+	margin-bottom: 32px;
+}
+
+.cal-logo-title {
+	margin-bottom: 40px;
+	color: #484848;
+	font-weight: bold;
+	font-size: 39px;
+	line-height: 14px;
+}
+
+.cal-login-form-head-title {
+	margin-left: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 90%;
+	border-bottom: 1px solid #dedede;
+	color: #7f7f7f;
+}
+/*LOGO END*/
+
+/*GLOBAL STYLE END*/
+
+/*FORM CONTROLLS START*/
+.cal-controlls {
+	float: left;
+	width: 38px;
+	height: auto;
+}
+
+.cal-auth-select {
+	padding: 10px;
+	padding-right: 5px;
+	width: 100%;
+	height: 20px;
+	background-color: #fff;
+}
+
+.cal-auth-select-ico {
+	width: 20px;
+	height: 20px;
+	background: url(../images/g_ico_mid.png) no-repeat -101px -670px;
+	opacity: .6;
+}
+
+.cal-registr-select {	
+	padding: 10px;
+	padding-right: 5px;
+	width: 100%;
+	height: 20px;
+	background-color: #e5e5e5;
+}
+
+.cal-registr-select-ico {
+	width: 20px;
+	height: 20px;
+	background: url(../images/g_ico_mid.png) no-repeat -135px -134px;
+	opacity: .6;
+}
+
+/*FORM CONTROLLS END*/
