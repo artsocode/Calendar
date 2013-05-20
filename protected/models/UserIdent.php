@@ -6,11 +6,20 @@ class UserIdent extends CUserIdentity {
 	//authenticate - function that checks user `username` or `email` 
 	//in database and returns true or false 
 	public function authenticate() {
+
+		$is_email = filter_var($this->username, FILTER_VALIDATE_EMAIL);
+		if ($is_email === $this->username) { 
+			$type = 'email';	
+		} else { 
+			$type = 'username'; 
+		}
+
 		if ($type == 'email') {
-			$record = Users::model()->findByAttributes(array('email' => $this->email));
+			$record = Users::model()->findByAttributes(array('email' => $this->username));
 		} else {
 			$record = Users::model()->findByAttributes(array('username' => $this->username));
-		}		
+		}
+			
 		if ( $record === null ) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		} elseif ( $record->password !== crypt($this->password, $record->password) ) {
@@ -20,6 +29,7 @@ class UserIdent extends CUserIdentity {
 			$this->setState('username', $record->username);
 			$this->errorCode = self::ERROR_NONE;
 		}
+		
 		return !$this->errorCode;
 	}
 

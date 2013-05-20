@@ -2,8 +2,8 @@
 return array (
   'template' => 'default',
   'connectionId' => 'db',
-  'tablePrefix' => 'u',
-  'modelPath' => 'application.models',
+  'tablePrefix' => 'ev',
+  'modelPath' => 'application.components.calendar.model',
   'baseClass' => 'CActiveRecord',
   'buildRelations' => '1',
 );

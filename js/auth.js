@@ -9,8 +9,8 @@ $(document).ready(function() { //НАЧАЛО READY
 		    blueColorHex: '#35ABC0',
 		    grayColorHex: '#7F7F7F',
 		   whiteColorHex: '#FFFFFF',
-		softGrayColorHex: '#E5E5E5',
-	}
+		softGrayColorHex: '#E5E5E5'
+	};
 	/*Focus color variable end*/
 
 	/*Main reg & auth form controlls start*/
@@ -34,8 +34,8 @@ $(document).ready(function() { //НАЧАЛО READY
 		 regPSInput: $('.cal-reg-ps-input'),
 		 regUNLabel: $('.cal-reg-un-label'),
 		 regEMLabel: $('.cal-reg-em-label'),
-		 regPSLabel: $('.cal-reg-ps-label'),
-	}
+		 regPSLabel: $('.cal-reg-ps-label')
+	};
 	/*Main reg & auth form input and labels end*/
 
 	/*Form position*/
@@ -98,6 +98,8 @@ $(document).ready(function() { //НАЧАЛО READY
 	});
 	controllsObj.authParent.click(function() {		
 		if (form) {
+			lockForm('reg', 'lock');
+			lockForm('auth', 'unlock');
 			controllsObj.lent.css({'right': '0px'});
 			controllsObj.registr.css({'opacity': '.6'});
 			styleSwitch(controllsObj.regParent, false);
@@ -120,6 +122,8 @@ $(document).ready(function() { //НАЧАЛО READY
 	});
 	controllsObj.regParent.click(function() {
 		if (!form) {
+			lockForm('reg', 'unlock');
+			lockForm('auth', 'lock');
 			controllsObj.lent.css({'right': '260px'});
 			controllsObj.auth.css({'opacity': '.6'});
 			styleSwitch(controllsObj.authParent, false);
@@ -179,4 +183,45 @@ function styleSwitch(objObj, setBool) {
 	}
 }
 /*SET AND DEL STYLE END*/
+
+/*LOCK AND UNLOCK MINE FORM START*/
+function lockForm(formStr, actionStr) {
+	if (formStr == 'auth') {
+		switch(actionStr) {
+			case 'lock': {
+				formObj.authUNInput.prop('disabled', true);
+				formObj.authPSInput.prop('disabled', true);
+				return true;
+			}
+			case 'unlock': {
+				formObj.authUNInput.prop('disabled', false);
+				formObj.authPSInput.prop('disabled', false);
+				return true;
+			}
+			default: {
+				return false;
+			}
+		}
+	} else if (formStr == 'reg') {
+		switch(actionStr) {
+			case 'lock': {
+				formObj.regUNInput.prop('disabled', true);
+				formObj.regEMInput.prop('disabled', true);
+				formObj.regPSInput.prop('disabled', true);
+				return true;
+			}
+			case 'unlock': {
+				formObj.regUNInput.prop('disabled', false);
+				formObj.regEMInput.prop('disabled', false);
+				formObj.regPSInput.prop('disabled', false);
+				return true;
+			}
+			default: {
+				return false;
+			}
+		}
+	}
+}
+/*LOCK AND UNLOCK MINE FORM END*/
+
 });

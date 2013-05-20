@@ -25,15 +25,13 @@ class SiteController extends Controller {
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionIndex() {		
+	public function actionIndex() {	
 		if ( isset(Yii::app()->user->username) ) {
 			$this->render('calendar');
 		} else {
 			$this->render('auth');
-		}		
-			
+		}
 	}
-
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -60,18 +58,11 @@ class SiteController extends Controller {
 	public function actionLogin() {
 		if (isset($_POST['username']) && isset($_POST['password'])) {
 			$username = $_POST['username'];
-			$password = $_POST['password'];
-
-			$is_email = filter_var($username, FILTER_VALIDATE_EMAIL);
-			if ($is_email === $username) { 
-				$type = 'email';	
-			} else { 
-				$type = 'username'; 
-			}
+			$password = $_POST['password'];		
 
 			$identity = new UserIdent($username, $password);
 
-			if ( $identity->authenticate($type) ) {
+			if ( $identity->authenticate() ) {
 				Yii::app()->user->login($identity, 3600*24*7);
 				$this->redirect('/');
 			} else {

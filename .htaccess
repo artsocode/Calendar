@@ -1,5 +1,5 @@
-AddCharset utf-8 .php .html .js
 AddDefaultCharset off
+AddCharset utf-8 .php .html .js
 RewriteEngine on
 
 # if a directory or a file exists, use it directly

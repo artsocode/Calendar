@@ -35,12 +35,12 @@
 						<h2 class="cal-login-form-head-title"><strong>Регистрация</strong></h2>
 						<form action="/registr" method="post" accept-charset="utf-8">
 							<label class="cal-reg-un-label" for="username">Username</label>
-							<input class="cal-reg-un-input" type="text" name="username" value="" placeholder="Hey there, enter your Username" required>
+							<input class="cal-reg-un-input" type="text" name="username" value="" placeholder="Hey there, enter your Username" required disabled>
 							<label class="cal-reg-em-label" for="email">Email</label>
-							<input class="cal-reg-em-input" type="email" name="email" value="" placeholder="Don't forget your Email" required>
+							<input class="cal-reg-em-input" type="email" name="email" value="" placeholder="Don't forget your Email" required disabled>
 							<label class="cal-reg-ps-label" for="password">Password</label>
-							<input class="cal-reg-ps-input" type="password" name="password" value="" placeholder="And LOOONGEST and STRONGEST Password" required>
-							<input class="cal-reg-submit-btn" type="submit" name="logSub" value="Регистрация">
+							<input class="cal-reg-ps-input" type="password" name="password" value="" placeholder="And LOOONGEST and STRONGEST Password" required disabled>
+							<input class="cal-reg-submit-btn" type="submit" name="logSub" value="Регистрация" disabled>
 						</form>
 					</div>
 					<!--REGISTRATION FORM END-->
