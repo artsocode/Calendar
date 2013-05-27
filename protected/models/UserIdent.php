@@ -42,21 +42,35 @@ class UserIdent extends CUserIdentity {
 		if ( $record === null ) {
 			$addUser = new Users();		
 			$addUser->username = $this->username;
-			$addUser->email = $email;		
-
+			$addUser->email = $email;
 			$password = crypt($this->password);
-
 			$addUser->password = $password;
-			$addUser->save();
-			$this->setState('username', $this->username);
-			$this->errorCode = self::ERROR_NONE;
-			return true;
+			$save_result = $addUser->save();
+			if ($save_result) {
+				$idInstalled = $this->setId();
+				if ($idInstalled) {
+					return true;
+				}
+			} else {
+				return false;
+			}
+			
 		} else {
 			throw new Exception("Такой пользователь уже существует!", 1);			
 		}
 	} 
 
+	//Set id to new users
+	private function setId() {
+		$record = Users::model()->findByAttributes(array('username' => $this->username));
+		$this->_id = $record->user_id;			
+		$this->setState('username', $this->username);
+		$this->errorCode = self::ERROR_NONE;
+		return true;
+	}
+
+	//Return user id
 	public function getId() {
 		return $this->_id;
-	}
+	}		
 }

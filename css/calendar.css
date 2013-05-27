@@ -1,23 +1,52 @@
+/*SUBMIT AND BUTTON STYLE START*/
+input[type="button"] {
+	margin-top: 10px;
+	width: 120px;
+	height: 30px;
+	border-bottom: 1px solid rgba(102, 164, 97, 0.4) !important;
+	border-radius: 3px !important;
+	background-color: #7cc576;
+	box-shadow: 0 -1px 0px rgba(102, 164, 97, 0.4) inset;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+	font-weight: bold;
+	cursor: default;
+}
+
+input[type="button"]:hover {
+	border: 1px solid #88d182;
+	background-color: #88d182;
+}
+
+input[type="button"]:active {
+	border: 1px solid #6cac67;
+	background-color: #6cac67;
+}
+/*SUBMIT AND BUTTON STYLE END*/
+
+/*HEADER START*/
+/*bg*/
 .cal-bg {
 	width: 100% !important;
 	height: 40px;
 	border-bottom: 1px solid #2a2a2a;
 	background: url(../images/bg.png) repeat-x;
 }
-
+/*ui container*/
 .cal-ui {
 	float: left;
 	margin-top: 10px;
-	margin-left: 20px;
+	margin-left: 22px;
 }
-
+/*username*/
 .cal-username {
 	color: #fff;
 	text-shadow: 0px 1px 2px #333;
 	font-size: 14px;
 	font-family: Arial;	
 }
-
+/*exit start*/
 .cal-exit-btn {
 	margin-left: 5px;
 	padding: 3px 7px;
@@ -59,17 +88,201 @@
 	background-color: #bc3731;
 	color: #fff;
 }
+/*exit start end*/
+/*HEADER END*/
 
+/*AJAX GIF*/
+.cal-ajax-loadgif {
+	display: none;
+	margin-top: 20px;
+}
+
+/*CALENDAR START*/
 .cal-calendar {
 	overflow: hidden;
-	margin-left: 20px;
-	padding-bottom: 20px;
-	width: 50%;
+	width: 100%;
+}
+
+/*HEAD DATE TITLE START*/
+.cal-head-date-container {
+	overflow: hidden;
+	margin-bottom: 11px; 
+	width: auto;
+	text-align: justify;
+}
+
+.cal-head-date-day { 
+	float: left; 
+	padding-right: 10px;
+	color: #88d182;
+	font-size: 50px; 
+	line-height: 44px;
+}
+
+.cal-head-date-month {
+	color: #88d182;
+	font-size: 16px;
+}
+
+.cal-head-date-year {
+	color: #666666;
+	font-size: 12px;
+}
+/*HEAD DATE TITLE END*/
+
+/*EVENT TABLE START*/
+.cal-table-event {
+	position: absolute;
+	left: 400px;
+	float: left;
+	clear: both;
+	overflow: hidden;
+	width: 920px;
+}
+
+.cal-scroll-table {
+	overflow-y: scroll !important;
+	height: 189px;
+	border: 1px solid #ccc;
+}
+
+.cal-table-head > th {
+	padding-left: 10px;
+	width: 0 !important;
+	border-right: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	background-color: #efefef !important;
+	color: #666666;
+	font-size: 13px !important;
+}
+
+.cal-table-head > th:first-child {
+	width: 5px !important;
+}
+
+.cal-table-body > th {
+	padding-left: 10px;
+	border-right: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	color: #666666;
+	font-weight:  normal;
+	font-size: 12px !important;	
+}
+
+.cal-table-body:hover {
+	background-color: #dfecf7;
+}
+
+.cal-table-body-active:hover {
+	background-color: #dfecf7;
+}
+
+.cal-table-body-active > th{
+	padding-left: 10px;
+	border-right: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	background-color: #dfecf7;
+	color: #666666;
+	font-weight: normal !important;
+	font-size: 12px !important;
+}
+
+.cal-table-body > th:first-child {
+	background-color: #efefef !important;
+}
+
+.cal-edit-field-ico {
+    opacity: 0.60;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+	cursor: pointer;
+    -khtml-opacity: 0.60;
+    -moz-opacity: 0.60;
+}
+
+.cal-edit-field-ico:hover {
+    opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -khtml-opacity: 100;
+    -moz-opacity: 1;
+}
+
+.cal-del-field-ico {
+    opacity: 0.60;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+	cursor: pointer;
+    -khtml-opacity: 0.60;
+    -moz-opacity: 0.60;
+}
+
+.cal-del-field-ico:hover {
+    opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -khtml-opacity: 100;
+    -moz-opacity: 1;
+}
+
+
+
+.cal-table-event > table {
+	width: 100%;
+	border-radius: none !important;
+}
+
+.cal-table-event > table > tbody > tr:hover {
+	border-radius: none !important;
+	background-color: #efefef !important;
+}
+
+.cal-edit-data-container {
+	overflow: hidden;
+	width: 100%;
+	height: 300px;
+}
+
+#cal-edit-form {
+	margin-top: 20px;
+	padding: 13px;
+	border: 1px solid #ccc;
+	background-color: #efefef;
+}
+
+.cal-edit-data-element {
+	margin: 0 !important;
+	margin-right: 7px !important;
+	margin-bottom: 7px !important;
+	width: 23% !important;
+	border: 1px solid #ccc !important;
+	border-radius: 0 !important;
+	background-color: #fff !important;
+	font-size: 11px !important;
+}
+
+.cal-edit-type {
+	height: 30px !important;
+}
+
+.cal-edit-textarea {
+	position: relative;
+	top: 6px;
+	padding: 0 0 0 0 !important;
+	max-height: 123px;
+	width: 98.5% !important;
+	resize: vertical;
+}
+
+.cal-edit-textarea:focus {
+	box-shadow: none !important;
 }
 
 .cal-navigation-bar {
+	clear: both;
 	overflow: hidden;	
 	margin-bottom: 20px;
+	min-width: 350px;
 }
 
 .cal-nav-btn {
@@ -85,8 +298,8 @@
 }
 
 .cal-nav-btn:hover {
-	border: 1px solid #f84b45;
-	background-color: #f84b45;
+	border: 1px solid #da3827;
+	background-color: #da3827;
 	color: #fff;
 }
 
@@ -128,8 +341,6 @@
 .cal-message-box {	
 	position: absolute;
 	display: none;
-	float: left;
-	clear: both;
 	padding: 5px 3px 2px 0 ;
 	width: 80px;
 	border-radius: 3px;
@@ -165,9 +376,15 @@
 }
 
 .cal-day:hover {
-	border: 1px solid #f84b45;
-	background-color: #f84b45;
+	border: 1px solid #da3827;
+	background-color: #da3827;
 	color: #fff;
+}
+
+.active-day-on {
+	border: 1px solid #f84b45 !important;
+	background-color: #f84b45;
+	color: #fff !important;
 }
 
 .cal-event-no {
@@ -182,3 +399,117 @@
 	text-transform: uppercase;
 	font-size: 20px;	
 }
+
+.cal-addNew-event {
+	float: left;
+	clear: both;
+	overflow: hidden;
+	padding: 20px 0;
+	width: 330px;	
+	border: 1px solid #ccc;
+}
+
+.cal-addNew-title {
+	color: #333;
+	font-weight: bold;
+}
+
+.cal-addNew-lable {
+	position: relative;
+	top: 5px;
+	width: 30%;
+	text-align: justify;
+}
+
+.cal-addNew-input {
+	margin: 0 !important;
+	width: 55% !important;
+}
+
+.cal-text {
+	margin-bottom: 10px !important;
+	border: 1px solid #ccc !important;
+	border-radius: 0 !important;
+	background-color: #fff !important;
+}
+
+.cal-select {
+	margin-bottom: 10px !important;
+	width: 195px !important;
+	border-radius: 0 !important;
+	font-size: 11px;
+}
+
+.cal-textarea {
+	margin-bottom: 20px !important;
+	border-radius: 0 !important;
+	font-size: 11px;
+	resize: vertical;
+}
+
+/*JQUERY UI DATEPICKER START*/
+
+.ui-datepicker-div {
+	border: 1px solid #ccc !important;
+}
+
+.ui-datepicker-title {
+	width: 245px !important;
+	height: 20px !important;
+	font-size: 12px;
+	color: #333;
+}
+
+.ui-datepicker-prev:before {
+	font-size: 14px !important;
+	content: '←';
+}
+
+.ui-datepicker-next:after {
+	font-size: 14px !important;
+	content: '→';
+}
+
+.ui-datepicker-header {
+	width: 298px;
+	border: 1px solid #ccc !important;
+	background-color: #fff;
+}
+
+.ui-datepicker-calendar {
+	width: 300px !important;
+	height: 200px !important;
+	border: 1px solid #ccc !important;
+	background-color: #fff;
+	font-size: 16px !important;
+}
+
+.ui-state-default {
+	color: #ccc !important;
+	font-weight: bold;
+	text-align: center !important;
+}
+
+.ui-state-default:hover {
+	color: #fff !important;
+	background-color: #da3827;
+	font-weight: bold;
+}
+
+.ui-datepicker-week-end {
+	background-color: none !important;
+}
+
+.ui-datepicker-calendar > thead {
+	font-size: 16px;
+}
+
+.ui-datepicker-calendar > thead > tr > th{
+	padding: 5px 5px !important;
+	background-color: #000;
+	font-weight: normal;
+	color: #fff;
+}
+
+/*JQUERY UI DATEPICKER START*/
+

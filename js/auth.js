@@ -25,16 +25,20 @@ $(document).ready(function() { //НАЧАЛО READY
 
 	/*Main reg & auth form input and labels start*/
 	var formObj = {
+		   authForm: $('.cal-auth-from'), 
 		authUNInput: $('.cal-auth-un-input'),
 		authPSInput: $('.cal-auth-ps-input'),
 		authUNLabel: $('.cal-auth-un-label'),
 		authPSLabel: $('.cal-auth-ps-label'),
+		 authSubmit: $('.cal-auth-submit-btn'),
+			regForm: $('.cal-reg-from'),
 		 regUNInput: $('.cal-reg-un-input'),
 		 regEMInput: $('.cal-reg-em-input'),
 		 regPSInput: $('.cal-reg-ps-input'),
 		 regUNLabel: $('.cal-reg-un-label'),
 		 regEMLabel: $('.cal-reg-em-label'),
-		 regPSLabel: $('.cal-reg-ps-label')
+		 regPSLabel: $('.cal-reg-ps-label'),
+		  regSubmit: $('.cal-reg-submit-btn')
 	};
 	/*Main reg & auth form input and labels end*/
 
@@ -42,6 +46,50 @@ $(document).ready(function() { //НАЧАЛО READY
 	var form = activeBtn();
 
 	/*INITIALIZATION END*/
+
+/*AUTHORIZATION START*/
+formObj.authForm.submit(function() {
+	var username = validateField(formObj.authUNInput.val(), 'username');
+	var password = validateField(formObj.authPSInput.val(), 'password');
+	if (username == true) {
+		if (password == true) {
+			return true;
+		} else {
+			alert(password);
+			return false;
+		}
+	} else {
+		alert(username);
+		return false;
+	}
+	return false;
+});
+/*AUTHORIZATION END*/
+
+/*REGISTRATION START*/
+formObj.regForm.submit(function() {
+	var username = validateField(formObj.regUNInput.val(), 'username');
+	var password = validateField(formObj.regPSInput.val(), 'password');
+	var email = validateField(formObj.regEMInput.val(), 'email');
+	if (username == true) {
+		if (email == true) {
+			if (password == true) {
+				return true;
+			} else {
+				alert(password);
+				return false;
+			}
+		} else {
+			alert(email);
+			return false;
+		}
+	} else {
+		alert(username);
+		return false;
+	}
+	return false;
+});
+/*REGISTRATION END*/
 
 /*INPUT AND LABELS FOCUS EVENTS START*/
 /*AUTHORIZATION EVENTS START*/
@@ -156,16 +204,44 @@ function activeBtn() {
 })();
 
 /*Field value check*/
-function validateField(btnObj, fieldTypeStr) {
-	switch(fieldTypeStr) {
+function validateField(validObj, validType) {
+	switch(validType) {
 		case 'username': {
-			break;
+			if (validObj != 'null' && validObj != '' && validObj != 0) {
+				if (validObj.length >= 50) {
+					return 'Username должен быть короче 50 символов';
+				} else {
+					return true;
+				}
+			} else {
+				return 'Поле пусто';
+			}
 		}
 		case 'email': {
+			if (validObj != 'null' && validObj != '' && validObj != 0) {
+				var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    			var isEmail = pattern.test(validObj);
+				if (isEmail) {
+					return true;
+				} else {
+					return 'Не верный email';
+				}
+			} else {
+				return 'Поле пусто'
+			}
+			
 			break;
 		}
 		case 'password': {
-			break;
+			if (validObj != 'null' && validObj != '' && validObj != 0) {
+				if (validObj.length >= 255) {
+					return 'Password должен быть короче 255 символов';
+				} else {
+					return true;
+				}
+			} else {
+				return 'Поле пусто';
+			}
 		}
 		default: {
 			break;
@@ -191,11 +267,13 @@ function lockForm(formStr, actionStr) {
 			case 'lock': {
 				formObj.authUNInput.prop('disabled', true);
 				formObj.authPSInput.prop('disabled', true);
+				formObj.authSubmit.prop('disabled', true);
 				return true;
 			}
 			case 'unlock': {
 				formObj.authUNInput.prop('disabled', false);
 				formObj.authPSInput.prop('disabled', false);
+				formObj.authSubmit.prop('disabled', false);
 				return true;
 			}
 			default: {
@@ -208,12 +286,14 @@ function lockForm(formStr, actionStr) {
 				formObj.regUNInput.prop('disabled', true);
 				formObj.regEMInput.prop('disabled', true);
 				formObj.regPSInput.prop('disabled', true);
+				formObj.regSubmit.prop('disabled', true);
 				return true;
 			}
 			case 'unlock': {
 				formObj.regUNInput.prop('disabled', false);
 				formObj.regEMInput.prop('disabled', false);
 				formObj.regPSInput.prop('disabled', false);
+				formObj.regSubmit.prop('disabled', false);
 				return true;
 			}
 			default: {

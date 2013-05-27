@@ -18,17 +18,18 @@ return array(
 		'application.views.*',
 		'application.components.calendar.*',
 		'application.components.calendar.model.*',
+		'application.extensions.yiidebugtb.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array(),
-		),
+		),*/
 		
 	),
 
@@ -42,7 +43,7 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-				'gii'=>'gii',
+				/*'gii'=>'gii',
             	'gii/<controller:\w+>'=>'gii/<controller>',
             	'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
 				/*'<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -76,8 +77,14 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error, warning, trace',
 				),
+				 array( // configuration for the toolbar
+			        'class'=>'XWebDebugRouter',
+			        'config'=>'alignLeft, opaque, runInDebug, fixedPos, collapsed, yamlStyle',
+			        'levels'=>'error, warning, trace, profile, info',
+			                    'allowedIPs'=>array('127.0.0.1'),
+			     ),
 				// uncomment the following to show log messages on web pages
 				/*
 				array(

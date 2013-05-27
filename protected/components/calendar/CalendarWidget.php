@@ -6,12 +6,14 @@ class CalendarWidget extends CWidget {
 	}
 
 	public function run() {
-		//Enter point
+		//Enter point		
 		$CalendarBrain = CalendarBrain::getInstance();
 		$calendar = $CalendarBrain->getWeeksEventAndDay($CalendarBrain->createCalendar());
 		$weeksPeriod = $CalendarBrain->createDeaposon('now');
+		$usersAndType = $CalendarBrain->usersAndType();
 		$this->render( 'calendar', array('calendar' => $calendar, 
-										 'weeksPeriod' => $weeksPeriod) );
+										 'weeksPeriod' => $weeksPeriod,
+										 'usersAndType' => $usersAndType) );
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends Controller {
+class SiteController extends CController {
 	/**
 	 * Declares class-based actions.
 	 */
@@ -32,6 +32,7 @@ class SiteController extends Controller {
 			$this->render('auth');
 		}
 	}
+	
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -43,13 +44,6 @@ class SiteController extends Controller {
 			else
 				$this->render('error', $error);
 		}
-	}
-
-	/**
-	 * Displays the contact page
-	 */
-	public function actionMail() {
-		
 	}
 
 	/**
@@ -67,7 +61,7 @@ class SiteController extends Controller {
 				$this->redirect('/');
 			} else {
 				echo $identity->errorMessage;
-				$this->render('error');
+				$this->redirect('/');
 			}    		
 		} else {
 			$this->redirect('/');
@@ -98,7 +92,7 @@ class SiteController extends Controller {
 				$this->redirect('/');
 			} else {
 				echo $identity->errorMessage;
-				$this->render('error');
+				$this->redirect('/');
 			}    					
 		} else {
 			$this->redirect('/');

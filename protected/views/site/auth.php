@@ -3,7 +3,8 @@
 			<img class="cal-logo-images" src="../images/logo.png" alt="Календариус">
 			<h1 class="cal-logo-title">КАЛЕНДАРИУС</h1>
 		</div>
-		<!--LOGO END-->		
+		<!--LOGO END-->	
+
 		<div class="cal-form">
 			<!--FORM TRIGGERS START-->
 			<div class="cal-controlls">
@@ -15,13 +16,15 @@
 				</div>				
 			</div>
 			<!--FORM TRIGGERS END-->
+
 			<!--AUTHORIZATION AND REGISTRATION WINDOW START-->	
 			<div class="cal-form-window">
 				<div class="cal-form-lent">	
+
 					<!--AUTHORIZATION FORM START-->	
 					<div class="cal-auth-form">
 						<h2 class="cal-login-form-head-title"><strong>Авторизация</strong></h2>
-						<form action="/login" method="post" accept-charset="utf-8">
+						<form action="/login" method="post" accept-charset="utf-8" class="cal-auth-from">
 							<label class="cal-auth-un-label" for="username">Username or Email</label>
 							<input class="cal-auth-un-input" type="text" name="username" value="" placeholder="Type your Username or Email" required>
 							<label class="cal-auth-ps-label" for="password">Password</label>
@@ -29,11 +32,12 @@
 							<input class="cal-auth-submit-btn" type="submit" name="logSub" value="Войти">
 						</form>
 					</div>
-					<!--AUTHORIZATION FORM END-->					
+					<!--AUTHORIZATION FORM END-->
+
 					<!--REGISTRATION FORM START-->
 					<div class="cal-registr-form">
 						<h2 class="cal-login-form-head-title"><strong>Регистрация</strong></h2>
-						<form action="/registr" method="post" accept-charset="utf-8">
+						<form action="/registr" method="post" accept-charset="utf-8" class="cal-reg-from">
 							<label class="cal-reg-un-label" for="username">Username</label>
 							<input class="cal-reg-un-input" type="text" name="username" value="" placeholder="Hey there, enter your Username" required disabled>
 							<label class="cal-reg-em-label" for="email">Email</label>
@@ -44,7 +48,9 @@
 						</form>
 					</div>
 					<!--REGISTRATION FORM END-->
+
 				</div>
 			</div>
-			<!--AUTHORIZATION AND REGISTRATION WINDOW END-->				
+			<!--AUTHORIZATION AND REGISTRATION WINDOW END-->
+
 		</div>
